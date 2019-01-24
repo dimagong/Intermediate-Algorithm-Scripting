@@ -1,0 +1,19 @@
+function destroyer(arr) {
+  // Remove all the values
+  
+  for(var i = 1; i < arguments.length; i++){
+    var elem = arguments[i];
+    var startnumber = 0; 
+    while(startnumber <= arguments[0].length){
+    var count = arguments[0].indexOf(elem);
+    if(count != -1){
+      arguments[0].splice(count, 1);
+    }
+    startnumber ++; 
+    }
+  }
+
+  return arguments[0];
+}
+
+console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));

@@ -1,0 +1,34 @@
+function whatIsInAName(collection, source){
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  var arrSource = Object.entries(source);
+  var end_length = arrSource.length;
+      
+  for(var i = 0; i < collection.length; i++) {
+    var arrCollection = Object.entries(collection[i]);
+  
+    var start_length = arrCollection.length;
+    
+  
+    var number = 0;
+    
+    for(var j = 0; j < start_length; j++){
+        for(var k = 0; k < end_length; k++){
+          if(arrCollection[j].indexOf(arrSource[k][0]) != -1 && arrCollection[j].indexOf(arrSource[k][1]) != -1) {
+            number++; 
+          }
+        }
+    }
+    
+    if(number == end_length) {
+      arr.push(collection[i]);
+    }
+  }
+  
+  // Only change code above this line
+  alert(JSON.stringify(arr));  
+  //return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });

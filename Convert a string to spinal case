@@ -1,0 +1,74 @@
+function spinalCase(str) {
+ 
+  
+//Find big letter  
+  var big = /[A-Z]/g;
+  var arrBigWord = str.match(big);
+
+   
+ //Find index of big letter
+  var arrBigIndex = [];
+  if(arrBigWord){
+    var i = 0;
+    arrBigWord.forEach(function(elem){
+    var index_big = str.indexOf(elem, i++);
+    i += index_big;
+    
+      
+    if(index_big != -1) {
+        arrBigIndex.push(index_big);
+        
+    }
+      
+    });
+  }
+  
+  
+  //Convertation string to arrey
+  var arrString = str.split('');
+  
+   
+  //To get spase before big lettter
+  for(var j = 0, k = 0; j < arrBigIndex.length; j++){
+    
+    if(arrBigIndex[j] === 0){//So that there is no shift due to the first letter, if it is big
+     
+     continue;
+    }
+    
+    
+    var nextBigIndex = arrBigIndex[j] + k;
+   
+    
+    var previous = arrString[nextBigIndex-1]; 
+     
+    if(previous == ' ' || previous == '_'){
+      arrString.splice(nextBigIndex, 0, "-");
+      arrString.splice(nextBigIndex-1, 1);
+    }
+    
+    if(previous != ' ' && previous != '_'){
+      arrString.splice(nextBigIndex, 0, "-");
+      k++;
+    }
+ 
+  }
+   
+  
+  var strNew =  arrString.join('');
+  
+  
+   var separ = /[ \_]/; 
+   var text = strNew.split(separ); 
+   var strEnd =  text.join("-");
+   var text_low = strEnd.toLowerCase(); 
+   
+  //alert(text_low);
+   
+  return str;
+}
+
+//spinalCase("AllThe-small Things");
+//spinalCase("The_Andy_Griffith_Show");
+//spinalCase("ThisIsSpinalTap");
+//spinalCase("This Is Spinal Tap");

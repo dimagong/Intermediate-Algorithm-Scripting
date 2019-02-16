@@ -1,0 +1,23 @@
+function myReplace(str, before, after) {
+  //create an object with a regular expression
+  var regular = new RegExp(before);
+
+  var big_letter = /[A-Z]/;
+  var arrBig = before.match(big_letter);
+  var afterNew = '';
+  if(arrBig){
+    afterNew = after[0].toUpperCase() + after.slice(1);
+  }else{
+    afterNew = after;
+  }
+
+  var newStr = str.replace(regular, afterNew);
+  
+  
+  
+ //console.log(newStr);
+  
+  return newStr;
+}
+
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting");

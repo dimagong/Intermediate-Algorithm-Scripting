@@ -1,0 +1,15 @@
+function fearNotLetter(str) {
+  var arrStr = str.split('');
+  for(var i = 1; i < arrStr.length; i++){
+    var end = arrStr[i].charCodeAt(0);
+    var start = arrStr[i-1].charCodeAt(0);
+    if( end - start != 1){
+      var problem = String.fromCharCode(start + 1);
+    }
+  }
+  
+  //console.log(trable);
+  return problem;
+}
+
+fearNotLetter("abce");

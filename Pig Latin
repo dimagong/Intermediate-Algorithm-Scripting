@@ -1,0 +1,20 @@
+function translatePigLatin(str) {
+  str = str.toLowerCase();
+  var reg = /[aeiou]/g;
+  var arrStrVowel = str.match(reg);
+  
+  var strNew = '';
+  
+  if(str[0].match(reg)){
+    strNew  = str + 'way';
+  } else if(!arrStrVowel){
+    strNew  = str + 'ay';
+  }else {
+    var indexVowel = str.indexOf(arrStrVowel[0]);
+     strNew = str.slice(indexVowel) + str.slice(0, indexVowel) + 'ay';
+  }
+  
+  return strNew;
+}
+
+translatePigLatin("nt");

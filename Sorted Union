@@ -1,0 +1,30 @@
+function uniteUnique(arr) {
+  var arrStart = [];
+  var arrEnd = [];
+
+  for(var i = 0; i < arguments.length; i++){
+     arrStart = arrStart.concat(arguments[i]);
+     
+  }
+
+ var count; 
+ for(var j = 0; j < arrStart.length; j++){
+   count = 0;
+   for(var k = 0; k < j; k++){
+     if(arrStart[j] == arrEnd[k]){
+       count++;
+     }
+    }
+    if(count == 0){
+     arrEnd.push(arrStart[j]);
+   }
+   
+   
+ }
+
+
+  //console.log(arrEnd);
+  return arrEnd;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

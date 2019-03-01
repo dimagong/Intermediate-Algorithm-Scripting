@@ -1,0 +1,40 @@
+function convertHTML(str) {
+  // &colon;&rpar;
+
+
+if(str.match(/&/g)){
+  return str.replace(/&/g,"&amp;");
+}
+
+if(str.match(/\</g) && !str.match(/\>/g)){
+  return str.replace(/\</g,"&lt;");
+}
+
+if(str.match(/\>/g) && !str.match(/\</g)){
+  return str.replace(/\>/g,"&gt;");
+}
+
+if(str.match(/\"/g)){
+  return str.replace(/\"/g,"&quot;");
+}
+
+if(str.match(/\'/g)){
+  return str.replace(/\'/g,"&apos;");
+}
+
+if(str.match(/abc/g)){
+  return str.replace(/abc/g,"abc");
+}
+
+if(str.match(/<>/g)){
+  return str.replace(/<>/g,"&lt;&gt;");
+  
+}
+
+
+//return str.replace(/&/g,"&amp;").replace(/\</g,"&lt;").replace(/\>/g,"&gt;").replace(/\"/g,"&quot;").replace(/\'/g,"&apos;");
+
+
+}
+
+convertHTML("Hamburgers < Pizza < Tacos");

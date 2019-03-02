@@ -1,0 +1,31 @@
+function sumFibs(num) {
+  
+  //var arrSum = []; 
+  var number_fibon = 0;
+  var sum_negative = 0;
+  var following = 1;
+  var previous = 0;
+  for(var i = 1; sum_negative < num; i++){
+              
+    if(i > 1){
+    number_fibon= following + previous;
+    previous = following;
+    following= number_fibon;
+    } else{
+      number_fibon = following + previous;
+    }
+    //arrSum.push(number_fibon);
+    if(number_fibon % 2 != 0 && number_fibon <= num ) {
+      sum_negative += number_fibon;
+      //arrSum.push(number_fibon);
+    }
+  }
+  
+  //console.log(arrSum);
+
+
+  return sum_negative;
+  
+}
+
+sumFibs(75025);

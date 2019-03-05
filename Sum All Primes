@@ -1,0 +1,41 @@
+function sumPrimes(num) {
+  
+  
+  var arr_prime = [];
+
+//create arr from prime numbers
+
+  for(var j = 2; j <= num; j++){
+    arr_prime.push(j);
+  }
+
+// find prime numbers
+
+  for(var i = 0; i < arr_prime.length; i++){
+    if(arr_prime[i] == 0){
+      i++;
+    }
+    var prime_number = arr_prime[i];
+    //console.log(prime_number);
+        
+    if(Math.pow(prime_number, 2) < num) {
+      for(var k = i + 1; k < arr_prime.length; k++){
+        if(arr_prime[k] % prime_number == 0) {
+          arr_prime[k] = 0;
+          }
+          }
+          }
+          }
+
+//counting the sum of prime numbers
+
+  var sum = 0;
+  for(var q = 0; q <arr_prime.length; q++){
+     sum += arr_prime[q];
+  }
+  
+  //console.log(sum);
+  return sum;
+}
+
+sumPrimes(10);

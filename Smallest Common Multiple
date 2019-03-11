@@ -1,0 +1,43 @@
+function smallestCommons(arr) {
+  
+  var max = arr[1];
+  var min = arr[0];
+  if(arr[1] < arr [0]) {
+     min = arr[1];
+     max = arr[0];
+  }
+ 
+  
+  var a = min;
+  var b;
+  var sm_number;
+  for(var j = min + 1; j <= max; j++){
+    //console.log(a, "---a");
+    b = j;
+    //console.log(b, "---b");
+    sm_number = a;
+    while(a != 0 && b != 0){
+      if(a > b){
+        a = a % b;
+        //console.log(a, "---a");
+        }else {
+          b = b % a;
+          //console.log(b, "---b");
+        }
+    }
+    var big_dell = a + b;
+    //console.log(big_dell, "-------big_dell");
+    var small_multiple = sm_number*j/big_dell; 
+    //console.log(small_multiple, "-------small_multiple");
+    a = small_multiple;
+
+ }
+
+
+  
+  //console.log(small_multiple, "-------small_multiple");
+  return small_multiple;
+}
+
+
+smallestCommons([2, 4]);

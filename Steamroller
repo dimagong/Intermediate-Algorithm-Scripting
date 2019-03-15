@@ -1,0 +1,32 @@
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  
+  var str_arr = arr.join();
+  var arrFinish = str_arr.split(",");
+
+  var arrCount = [];
+  var reg = /[0-9]/;
+  
+  if(str_arr.search(reg) == -1){
+      arrCount = arrFinish;
+  }else{
+    for(var i = 0; i < arrFinish.length; i++){
+      if(arrFinish[i] == []){
+        continue;
+      }
+      if(arrFinish[i] == {}){
+        arrCount.push({});
+        continue;
+      }
+      arrCount.push(+arrFinish[i]);
+    }
+  }
+  
+   //console.log(arrCount);
+  //alert(arrFinish);
+  return arrCount;
+}
+//steamrollArray([1, [2], [3, [[4]]]]);
+//steamrollArray([1, [], [3, [[4]]]]);
+//steamrollArray([[["a"]], [["b"]]]);
+steamrollArray([1, {}, [3, [[4]]]]);

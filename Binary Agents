@@ -1,0 +1,26 @@
+function binaryAgent(str) {
+  
+
+  var arrStr = str.split(' ');
+  var arrEnd = [];
+  
+  //console.log(arrStr[0]);
+
+  arrStr.forEach(function(item){
+    var elem = parseInt(item, 2);
+    var rez = String.fromCharCode(elem);
+    arrEnd.push(rez);
+
+    
+    //console.log(String.fromCharCode(parseInt(item, 2)));
+
+  });
+  
+  var strEnd = arrEnd.join('');
+  
+  //console.log(strEnd);
+  
+  return strEnd;
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");

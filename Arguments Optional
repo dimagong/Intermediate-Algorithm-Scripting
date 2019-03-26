@@ -1,0 +1,21 @@
+function addTogether() {
+  if(typeof(arguments[1]) == 'number'){
+   
+    return (arguments[1] + arguments[0]);
+    console.log(arguments[1] + arguments[0]);
+  }
+  var num = arguments[0];
+  if(arguments.length == 1 && typeof(arguments[0]) == 'number'){
+    return function(){
+      if(typeof(arguments[0]) == 'number'){
+        console.log(num + arguments[0]);
+        return(num + arguments[0]);
+      }
+      
+    }
+  }
+  
+  
+}
+
+addTogether(2)(3);

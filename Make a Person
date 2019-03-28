@@ -1,0 +1,51 @@
+var Person = function(firstAndLast) {
+  // Complete the method below and implement the others similarly
+
+  var name = firstAndLast;
+  
+  this.getFullName = function() {
+   
+    console.log(name);
+    return name;
+  };
+
+  
+  this.getFirstName = function(){
+    var arrStr = name.split(' ');
+    console.log(arrStr[0]);
+    return arrStr[0];
+  };
+
+  this.getLastName = function(){
+    var arrStr = name.split(' ');
+    console.log(arrStr[1]);
+    return arrStr[1];
+  }; 
+
+
+  this.setFirstName = function(){
+    var firstArr = name.split(' ');
+    name = arguments[0] + ' ' + firstArr[1];
+    console.log(name);
+  }; 
+
+  this.setLastName = function(){
+     var lastArr = name.split(' ');
+     name = lastArr[0] + " " + arguments[0];
+     console.log(name);
+  };
+
+  this.setFullName = function(){
+      name = arguments[0];
+      console.log(name);
+  };
+  
+  //return firstAndLast;
+};
+
+var bob = new Person('Bob Ross');
+//bob.getFullName();
+//bob.getFirstName();
+//bob.setFirstName("Haskell");
+//bob.getFullName();
+//bob.setFullName("Haskell Curry");

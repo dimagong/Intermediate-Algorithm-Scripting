@@ -1,0 +1,33 @@
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var arrEnd = [];
+  
+  arr.forEach(function(elem){
+    var arrStart = elem.avgAlt;
+  //console.log(arrStart);
+  var period = 2 * Math.PI * Math.sqrt(Math.pow((earthRadius +        arrStart),3) / GM);
+  var orb_period = Math.round(period);
+
+  function Orbital(){
+    this.name = elem.name;
+    this.orbitalPeriod = orb_period
+
+  };
+  
+  var orbit_obj = new Orbital(); 
+
+  console.log(orbit_obj.orbitalPeriod);
+  
+  arrEnd.push(orbit_obj);
+
+  })
+
+  
+  return arrEnd;
+  
+  //return arr;
+}
+
+//orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
